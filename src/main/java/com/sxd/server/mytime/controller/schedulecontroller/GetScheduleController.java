@@ -17,14 +17,14 @@ public class GetScheduleController {
     }
 
     //根据scheduleId获取该Schedule信息
-    @RequestMapping(value = "getScheduleById",method = RequestMethod.GET)
-    public Schedule getScheduleById(Integer scheduleId){
+    @RequestMapping(value = "getScheduleById", method = RequestMethod.GET)
+    public Schedule getScheduleById(Integer scheduleId) {
         return getScheduleService.getScheduleById(scheduleId);
     }
 
     //获取目标用户的所有日程信息
-    @RequestMapping(value = "getScheduleByUser",method = RequestMethod.GET)
-    public List<Schedule> getScheduleByUser(Integer userId){
+    @RequestMapping(value = "getScheduleByUser", method = RequestMethod.GET)
+    public List<Schedule> getScheduleByUser(Integer userId) {
         return getScheduleService.getScheduleByUser(userId);
     }
 }

@@ -12,7 +12,7 @@ public class ModifyScheduleService {
         this.scheduleMapper = scheduleMapper;
     }
 
-    public int modifySchedule(Schedule schedule){
+    public int modifySchedule(Schedule schedule) {
         return scheduleMapper.updateByPrimaryKey(schedule);
     }
 }

@@ -15,9 +15,10 @@ public class AddTaskController {
         this.addTaskService = addTaskService;
     }
 
-    @RequestMapping(value = "addTask",method = RequestMethod.GET)
-    public int addTask(Integer userId,Integer position,String taskName,String startTime,String stopTime,String remark,Integer remind,String tag){
-        Task task=new Task();
+    @RequestMapping(value = "addTask", method = RequestMethod.GET)
+    public int addTask(Integer userId, Integer position, String taskName, String startTime, String stopTime,
+                       String remark, Integer remind, String tag) {
+        Task task = new Task();
         task.setUserId(userId);
         task.setTaskName(taskName);
         task.setTag(tag);

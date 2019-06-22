@@ -6,10 +6,10 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @MapperScan(basePackages = "com.sxd.server.mytime")
 @SpringBootApplication
-public class MytimeApplication {
+public class MyTimeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MytimeApplication.class, args);
+        SpringApplication.run(MyTimeApplication.class, args);
     }
-
 }
+

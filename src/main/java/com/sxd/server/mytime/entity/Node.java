@@ -1,11 +1,15 @@
 package com.sxd.server.mytime.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Table(name = "node")
 public class Node {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "JDBC")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "JDBC")
     @Column(name = "node_id")
     private Integer nodeId;
 
@@ -21,14 +25,6 @@ public class Node {
     @Column(name = "is_complete")
     private Integer isComplete;
 
-    public Integer getNodeId() {
-        return nodeId;
-    }
-
-    public void setNodeId(Integer nodeId) {
-        this.nodeId = nodeId;
-    }
-
     public Integer getTaskId() {
         return taskId;
     }
@@ -37,24 +33,12 @@ public class Node {
         this.taskId = taskId;
     }
 
-    public String getNodeName() {
-        return nodeName;
-    }
-
     public void setNodeName(String nodeName) {
         this.nodeName = nodeName;
     }
 
-    public String getNodeTime() {
-        return nodeTime;
-    }
-
     public void setNodeTime(String nodeTime) {
         this.nodeTime = nodeTime;
-    }
-
-    public Integer getIsComplete() {
-        return isComplete;
     }
 
     public void setIsComplete(Integer isComplete) {

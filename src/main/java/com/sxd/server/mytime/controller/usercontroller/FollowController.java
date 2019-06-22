@@ -15,6 +15,9 @@ import java.util.List;
 public class FollowController {
     private final FollowService followService;
     private final GetUserService getUserService;
+    private static final int TARGET_IS_MINE = -2;
+    private static final int MINE_NOT_EXIST = -3;
+    private static final int TARGET_NOT_EXIST = -4;
 
     public FollowController(FollowService followService, GetUserService getUserService) {
         this.followService = followService;
@@ -22,15 +25,15 @@ public class FollowController {
     }
 
     //获取当前id用户的所有关注人
-    @RequestMapping(value = "getFollow",method = RequestMethod.GET)
-    public List<User> getFollow(Integer userId){
-        List<Follow> follow=followService.getFollow(userId);
-        List<User> userList=new ArrayList<>();
-        if(follow==null){
+    @RequestMapping(value = "getFollow", method = RequestMethod.GET)
+    public List<User> getFollow(Integer userId) {
+        List<Follow> follow = followService.getFollow(userId);
+        List<User> userList = new ArrayList<>();
+        if (follow == null) {
             return null;
-        }else{
+        } else {
             for (Follow nowFollow:follow) {
-                User user=getUserService.getUser(nowFollow.getFollowedId());
+                User user = getUserService.getUser(nowFollow.getFollowedId());
                 userList.add(user);
             }
         }
@@ -38,25 +41,25 @@ public class FollowController {
     }
 
     //通过自身id和目标id来关注用户
-    @RequestMapping(value = "followUser",method = RequestMethod.GET)
-    public int followUser(Integer myId,Integer targetId){
-        Follow follow=new Follow();
-        if(myId.equals(targetId)){
-            return -2;
+    @RequestMapping(value = "followUser", method = RequestMethod.GET)
+    public int followUser(Integer myId, Integer targetId) {
+        Follow follow = new Follow();
+        if (myId.equals(targetId)) {
+            return TARGET_IS_MINE;
         }
         //校验myId用户是否不存在
-        User myUser=getUserService.getUser(myId);
-        if(myUser==null){
-            return -3;
-        }else{
+        User myUser = getUserService.getUser(myId);
+        if (myUser == null) {
+            return MINE_NOT_EXIST;
+        } else {
             follow.setFollowingId(myId);
         }
 
         //校验targetId用户是否不存在
-        User targetUser=getUserService.getUser(targetId);
-        if(targetUser==null){
-            return -4;
-        }else{
+        User targetUser = getUserService.getUser(targetId);
+        if (targetUser == null) {
+            return TARGET_NOT_EXIST;
+        } else {
             follow.setFollowedId(targetId);
         }
 
@@ -65,24 +68,24 @@ public class FollowController {
     }
 
     //使当前用户取消关注目标用户
-    @RequestMapping(value = "deleteFollow",method = RequestMethod.GET)
-    public int deleteFollow(Integer myId,Integer targetId){
+    @RequestMapping(value = "deleteFollow", method = RequestMethod.GET)
+    public int deleteFollow(Integer myId, Integer targetId) {
         //检验当前用户id与目标用户id是否相同
-        if(myId.equals(targetId)){
-            return -2;
+        if (myId.equals(targetId)) {
+            return TARGET_IS_MINE;
         }
 
         //校验myId用户是否不存在
-        User myUser=getUserService.getUser(myId);
-        if(myUser==null){
-            return -3;
+        User myUser = getUserService.getUser(myId);
+        if (myUser == null) {
+            return MINE_NOT_EXIST;
         }
 
         //校验targetId用户是否不存在
-        User targetUser=getUserService.getUser(targetId);
-        if(targetUser==null){
-            return -4;
+        User targetUser = getUserService.getUser(targetId);
+        if (targetUser == null) {
+            return TARGET_NOT_EXIST;
         }
-        return followService.deleteFollow(myId,targetId);
+        return followService.deleteFollow(myId, targetId);
     }
 }

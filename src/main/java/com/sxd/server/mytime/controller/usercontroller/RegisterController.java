@@ -15,9 +15,9 @@ public class RegisterController {
     }
 
     //用户注册
-    @RequestMapping(value = "register",method = RequestMethod.GET)
-    public int register(String name,Integer iconId,String password){
-        User user=new User();
+    @RequestMapping(value = "register", method = RequestMethod.GET)
+    public int register(String name, Integer iconId, String password) {
+        User user = new User();
         user.setName(name);
         user.setIconId(iconId);
         user.setPassword(password);

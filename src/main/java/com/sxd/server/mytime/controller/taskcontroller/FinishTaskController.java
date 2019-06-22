@@ -11,18 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class FinishTaskController {
     private final ModifyTaskService modifyTaskService;
     private final GetTaskService getTaskService;
-
+    private static final Integer CANNOT_FOUND_TASK = -2;
     public FinishTaskController(ModifyTaskService modifyTaskService, GetTaskService getTaskService) {
         this.modifyTaskService = modifyTaskService;
         this.getTaskService = getTaskService;
     }
 
     //修改任务完成信息
-    @RequestMapping(value = "finishTask",method = RequestMethod.GET)
-    public int finishTask(Integer taskId,Integer finishNum){
-        Task task=getTaskService.getTaskById(taskId);
-        if(task==null){
-            return -2;
+    @RequestMapping(value = "finishTask", method = RequestMethod.GET)
+    public int finishTask(Integer taskId, Integer finishNum) {
+        Task task = getTaskService.getTaskById(taskId);
+        if (task == null) {
+            return CANNOT_FOUND_TASK;
         }
         task.setIsComplete(finishNum);
         return modifyTaskService.modifyTask(task);

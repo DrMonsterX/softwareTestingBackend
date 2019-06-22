@@ -16,10 +16,10 @@ public class RegisterService {
         this.completenessMapper = completenessMapper;
     }
 
-    public int register(User user){
-        Completeness completeness=new Completeness();
+    public int register(User user) {
+        Completeness completeness = new Completeness();
         completenessMapper.insert(completeness);
-        Integer completenessId=completeness.getCompletenessId();
+        Integer completenessId = completeness.getCompletenessId();
         user.setCompletenessId(completenessId);
         userMapper.insert(user);
         return user.getUserId();

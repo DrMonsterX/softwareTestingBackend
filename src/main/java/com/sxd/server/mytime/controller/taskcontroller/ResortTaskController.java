@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ResortTaskController {
     private final ModifyTaskService modifyTaskService;
     private final GetTaskService getTaskService;
+    private static final int TASK_NOT_FOUND = -2;
 
     public ResortTaskController(ModifyTaskService modifyTaskService, GetTaskService getTaskService) {
         this.modifyTaskService = modifyTaskService;
@@ -18,11 +19,11 @@ public class ResortTaskController {
     }
 
     //对任务进行重新排序
-    @RequestMapping(value = "resortTask",method = RequestMethod.GET)
-    public int resortTask(Integer taskId,Integer position){
-        Task task=getTaskService.getTaskById(taskId);
-        if(task==null){
-            return -2;
+    @RequestMapping(value = "resortTask", method = RequestMethod.GET)
+    public int resortTask(Integer taskId, Integer position) {
+        Task task = getTaskService.getTaskById(taskId);
+        if (task == null) {
+            return TASK_NOT_FOUND;
         }
         task.setPosition(position);
         return modifyTaskService.modifyTask(task);

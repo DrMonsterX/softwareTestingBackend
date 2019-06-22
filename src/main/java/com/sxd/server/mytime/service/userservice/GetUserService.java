@@ -13,7 +13,7 @@ public class GetUserService {
     }
 
     //通过userId主键查询user信息
-    public User getUser(Integer userId){
+    public User getUser(Integer userId) {
         return userMapper.selectByPrimaryKey(userId);
     }
 }

@@ -12,7 +12,7 @@ public class AddScheduleService {
         this.scheduleMapper = scheduleMapper;
     }
 
-    public int addSchedule(Schedule schedule){
+    public int addSchedule(Schedule schedule) {
         return scheduleMapper.insert(schedule);
     }
 }

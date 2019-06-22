@@ -17,9 +17,9 @@ public class NodeController {
     }
 
     //添加结点
-    @RequestMapping(value = "addNode",method = RequestMethod.GET)
-    public int addNode(Integer taskId,String nodeName,String nodeTime,Integer finishNum){
-        Node node=new Node();
+    @RequestMapping(value = "addNode", method = RequestMethod.GET)
+    public int addNode(Integer taskId, String nodeName, String nodeTime, Integer finishNum) {
+        Node node = new Node();
         node.setTaskId(taskId);
         node.setNodeName(nodeName);
         node.setNodeTime(nodeTime);
@@ -28,20 +28,20 @@ public class NodeController {
     }
 
     //获取任务id对应的所有节点
-    @RequestMapping(value = "getNodeByTaskId",method = RequestMethod.GET)
-    public List<Node> getNodeByTaskId(Integer taskId){
+    @RequestMapping(value = "getNodeByTaskId", method = RequestMethod.GET)
+    public List<Node> getNodeByTaskId(Integer taskId) {
         return nodeService.getNodeByTaskId(taskId);
     }
 
     //删除对应任务所有结点
-    @RequestMapping(value = "deleteAllNode",method = RequestMethod.GET)
-    public int deleteAllNode(Integer taskId){
+    @RequestMapping(value = "deleteAllNode", method = RequestMethod.GET)
+    public int deleteAllNode(Integer taskId) {
         return nodeService.deleteAllNode(taskId);
     }
 
     //修改结点完成信息
-    @RequestMapping(value = "finishNode",method = RequestMethod.GET)
-    public int finishNode(Integer nodeId,Integer finishNum){
-        return nodeService.finishNode(nodeId,finishNum);
+    @RequestMapping(value = "finishNode", method = RequestMethod.GET)
+    public int finishNode(Integer nodeId, Integer finishNum) {
+        return nodeService.finishNode(nodeId, finishNum);
     }
 }

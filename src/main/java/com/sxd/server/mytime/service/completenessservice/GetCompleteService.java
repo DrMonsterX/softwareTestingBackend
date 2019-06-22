@@ -17,12 +17,12 @@ public class GetCompleteService {
     }
 
     //根据用户id获取完成度id号，进而获取完成度数据
-    public Completeness getCompleteness(Integer userId){
-        User user=userMapper.selectByPrimaryKey(userId);
-        if(user==null){
+    public Completeness getCompleteness(Integer userId) {
+        User user = userMapper.selectByPrimaryKey(userId);
+        if (user == null) {
             return null;
         }
-        int completenessId=user.getCompletenessId();
+        int completenessId = user.getCompletenessId();
         return completenessMapper.selectByPrimaryKey(completenessId);
     }
 }

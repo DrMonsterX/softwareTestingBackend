@@ -17,8 +17,8 @@ public class GetUserController {
 
     //通过id查询用户数据，返回用户信息
     //若id不存在则返回null
-    @RequestMapping(value = "checkLogin",method = RequestMethod.GET)
-    public User getUser(Integer userId){
+    @RequestMapping(value = "checkLogin", method = RequestMethod.GET)
+    public User getUser(Integer userId) {
         return getUserService.getUser(userId);
     }
 }

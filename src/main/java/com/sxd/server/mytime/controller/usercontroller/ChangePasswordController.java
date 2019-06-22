@@ -14,8 +14,8 @@ public class ChangePasswordController {
     }
 
     //通过id，新密码来修改用户密码，返回结果。0失败，1成功，2用户不存在。
-    @RequestMapping(value = "changePassword",method = RequestMethod.GET)
-    public int changePassword(Integer userId,String password){
-        return passwordService.changePassword(userId,password);
+    @RequestMapping(value = "changePassword", method = RequestMethod.GET)
+    public int changePassword(Integer userId, String password) {
+        return passwordService.changePassword(userId, password);
     }
 }

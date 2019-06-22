@@ -15,8 +15,8 @@ public class DeleteScheduleController {
     }
 
     //根据scheduleId删除对应日程，返回结果状态码。
-    @RequestMapping(value = "deleteSchedule",method = RequestMethod.GET)
-    public int deleteSchedule(Integer scheduleId){
+    @RequestMapping(value = "deleteSchedule", method = RequestMethod.GET)
+    public int deleteSchedule(Integer scheduleId) {
         return deleteScheduleService.deleteSchedule(scheduleId);
     }
 }

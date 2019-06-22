@@ -15,12 +15,12 @@ public class GetCompleteController {
     }
 
     //根据用户id获取用户本周完成度数据
-    @RequestMapping(value = "getComplete",method = RequestMethod.GET)
-    public int getWeekComplete(Integer userId){
-        Completeness completeness=getCompleteService.getCompleteness(userId);
-        if(completeness==null){
+    @RequestMapping(value = "getComplete", method = RequestMethod.GET)
+    public int getWeekComplete(Integer userId) {
+        Completeness completeness = getCompleteService.getCompleteness(userId);
+        if (completeness == null) {
             return 0;
-        }else{
+        } else {
             return completeness.getWeekCompleteness();
         }
     }

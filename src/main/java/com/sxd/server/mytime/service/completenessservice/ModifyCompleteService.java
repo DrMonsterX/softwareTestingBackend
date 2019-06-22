@@ -12,7 +12,7 @@ public class ModifyCompleteService {
         this.completenessMapper = completenessMapper;
     }
 
-    public int updateCompleteness(Completeness completeness){
+    public int updateCompleteness(Completeness completeness) {
         return completenessMapper.updateByPrimaryKey(completeness);
     }
 }

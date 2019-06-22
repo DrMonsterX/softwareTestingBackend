@@ -15,9 +15,9 @@ public class AddScheduleController {
     }
 
     //添加日程
-    @RequestMapping(value = "addSchedule",method = RequestMethod.GET)
-    public int addSchedule(Integer userId,Integer position,String scheduleName, String startTime, String stopTime, String remark,Integer remind){
-        Schedule schedule=new Schedule();
+    @RequestMapping(value = "addSchedule", method = RequestMethod.GET)
+    public int addSchedule(Integer userId, Integer position, String scheduleName, String startTime, String stopTime, String remark, Integer remind) {
+        Schedule schedule = new Schedule();
         schedule.setUserId(userId);
         schedule.setPosition(position);
         schedule.setScheduleName(scheduleName);

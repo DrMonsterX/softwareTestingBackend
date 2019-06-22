@@ -11,7 +11,7 @@ public class DeleteTaskService {
         this.taskMapper = taskMapper;
     }
 
-    public int deleteTask(Integer taskId){
+    public int deleteTask(Integer taskId) {
         return taskMapper.deleteByPrimaryKey(taskId);
     }
 }

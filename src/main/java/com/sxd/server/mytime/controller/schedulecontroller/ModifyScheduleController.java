@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ModifyScheduleController{
+public class ModifyScheduleController {
     private final ModifyScheduleService modifyScheduleService;
     private final GetScheduleService getScheduleService;
+    private static final Integer SCHEDULE_NOT_FOUND = -2;
 
     public ModifyScheduleController(ModifyScheduleService modifyScheduleService, GetScheduleService getScheduleService) {
         this.modifyScheduleService = modifyScheduleService;
@@ -18,11 +19,11 @@ public class ModifyScheduleController{
     }
 
     //根据scheduleId获取schedule后修改其信息，返回结果状态码。
-    @RequestMapping(value = "modifySchedule",method = RequestMethod.GET)
-    public int modifySchedule(Integer scheduleId,String scheduleName,String startTime,String stopTime,String remark,Integer remind){
-        Schedule schedule=getScheduleService.getScheduleById(scheduleId);
-        if(schedule==null){
-            return -2;
+    @RequestMapping(value = "modifySchedule", method = RequestMethod.GET)
+    public int modifySchedule(Integer scheduleId, String scheduleName, String startTime, String stopTime, String remark, Integer remind) {
+        Schedule schedule = getScheduleService.getScheduleById(scheduleId);
+        if (schedule == null) {
+            return SCHEDULE_NOT_FOUND;
         }
         schedule.setScheduleName(scheduleName);
         schedule.setStartTime(startTime);

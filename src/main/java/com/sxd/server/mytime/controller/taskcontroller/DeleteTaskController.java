@@ -18,10 +18,10 @@ public class DeleteTaskController {
     }
 
     //根据taskId删除该task以及其所属的所有node
-    @RequestMapping(value = "deleteTask",method = RequestMethod.GET)
-    public int deleteTask(Integer taskId){
-        int result=nodeService.deleteAllNode(taskId);
-        result+=deleteTaskService.deleteTask(taskId);
+    @RequestMapping(value = "deleteTask", method = RequestMethod.GET)
+    public int deleteTask(Integer taskId) {
+        int result = nodeService.deleteAllNode(taskId);
+        result += deleteTaskService.deleteTask(taskId);
         return result;
     }
 }

@@ -12,7 +12,7 @@ public class ModifyTaskService {
         this.taskMapper = taskMapper;
     }
 
-    public int modifyTask(Task task){
+    public int modifyTask(Task task) {
         return taskMapper.updateByPrimaryKey(task);
     }
 }

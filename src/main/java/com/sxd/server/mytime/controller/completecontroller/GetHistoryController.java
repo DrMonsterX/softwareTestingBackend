@@ -17,11 +17,11 @@ public class GetHistoryController {
     }
 
     //通过当前用户id获取该用户的历史5周完成度数组
-    @RequestMapping(value = "getHistory",method = RequestMethod.GET)
-    public List<Integer> getHistory(Integer userId){
-        List<Integer> list=new ArrayList<>();
-        Completeness completeness=getCompleteService.getCompleteness(userId);
-        if(completeness==null){
+    @RequestMapping(value = "getHistory", method = RequestMethod.GET)
+    public List<Integer> getHistory(Integer userId) {
+        List<Integer> list = new ArrayList<>();
+        Completeness completeness = getCompleteService.getCompleteness(userId);
+        if (completeness == null) {
             return list;
         }
         list.add(completeness.getHistoryOne());

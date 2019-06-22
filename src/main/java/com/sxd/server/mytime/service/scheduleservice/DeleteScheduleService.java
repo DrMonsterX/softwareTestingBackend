@@ -11,7 +11,7 @@ public class DeleteScheduleService {
         this.scheduleMapper = scheduleMapper;
     }
 
-    public int deleteSchedule(Integer scheduleId){
+    public int deleteSchedule(Integer scheduleId) {
         return scheduleMapper.deleteByPrimaryKey(scheduleId);
     }
 }

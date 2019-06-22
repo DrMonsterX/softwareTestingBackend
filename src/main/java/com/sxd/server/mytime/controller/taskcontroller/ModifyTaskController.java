@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ModifyTaskController {
     private final ModifyTaskService modifyTaskService;
     private final GetTaskService getTaskService;
+    private static final Integer TASK_NOT_FOUND = -2;
 
     public ModifyTaskController(ModifyTaskService modifyTaskService, GetTaskService getTaskService) {
         this.modifyTaskService = modifyTaskService;
@@ -18,11 +19,11 @@ public class ModifyTaskController {
     }
 
     //修改任务,返回结果状态码
-    @RequestMapping(value = "modifyTask",method = RequestMethod.GET)
-    public int modifyTask(Integer taskId,String taskName,String startTime,String stopTime,Integer remind,String remark,String tag){
-        Task task=getTaskService.getTaskById(taskId);
-        if(task==null){
-            return -2;
+    @RequestMapping(value = "modifyTask", method = RequestMethod.GET)
+    public int modifyTask(Integer taskId, String taskName, String startTime, String stopTime, Integer remind, String remark, String tag) {
+        Task task = getTaskService.getTaskById(taskId);
+        if (task == null) {
+            return TASK_NOT_FOUND;
         }
         task.setTaskName(taskName);
         task.setStartTime(startTime);

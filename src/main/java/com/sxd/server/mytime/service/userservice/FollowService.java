@@ -16,24 +16,24 @@ public class FollowService {
     }
 
     //通过id获取关注列表
-    public List<Follow> getFollow(Integer userId){
-        Example example=new Example(Follow.class);
-        Example.Criteria criteria=example.createCriteria();
-        criteria.andEqualTo("followingId",userId);
+    public List<Follow> getFollow(Integer userId) {
+        Example example = new Example(Follow.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("followingId", userId);
         return followMapper.selectByExample(example);
     }
 
     //使当前用户关注目标用户
-    public int followUser(Follow follow){
+    public int followUser(Follow follow) {
         return followMapper.insert(follow);
     }
 
     //使当前用户取消关注目标用户
-    public int deleteFollow(Integer myId,Integer targetId){
-        Example example=new Example(Follow.class);
-        Example.Criteria criteria=example.createCriteria();
-        criteria.andEqualTo("followingId",myId);
-        criteria.andEqualTo("followedId",targetId);
+    public int deleteFollow(Integer myId, Integer targetId) {
+        Example example = new Example(Follow.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("followingId", myId);
+        criteria.andEqualTo("followedId", targetId);
         return followMapper.deleteByExample(example);
     }
 }

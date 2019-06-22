@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.sxd.server</groupId>
-    <artifactId>mytime</artifactId>
+    <artifactId>myTime</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mytime</name>
+    <name>myTime</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

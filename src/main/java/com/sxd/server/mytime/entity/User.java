@@ -1,12 +1,16 @@
 package com.sxd.server.mytime.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "JDBC")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "JDBC")
     @Column(name = "user_id")
     private Integer userId;
 
@@ -30,24 +34,12 @@ public class User {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public Integer getIconId() {
-        return iconId;
-    }
-
     public void setIconId(Integer iconId) {
         this.iconId = iconId;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {

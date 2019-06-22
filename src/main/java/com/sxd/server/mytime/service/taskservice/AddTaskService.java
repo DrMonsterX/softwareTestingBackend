@@ -13,7 +13,7 @@ public class AddTaskService {
         this.taskMapper = taskMapper;
     }
 
-    public int addTask(Task task){
+    public int addTask(Task task) {
         return taskMapper.insert(task);
     }
 

@@ -16,15 +16,15 @@ public class GetScheduleService {
     }
 
     //根据scheduleId获取对应的schedule实体
-    public Schedule getScheduleById(Integer scheduleId){
+    public Schedule getScheduleById(Integer scheduleId) {
         return scheduleMapper.selectByPrimaryKey(scheduleId);
     }
 
     //获取目标用户的所有日程
-    public List<Schedule> getScheduleByUser(Integer userId){
-        Example example=new Example(Schedule.class);
-        Example.Criteria criteria=example.createCriteria();
-        criteria.andEqualTo("userId",userId);
+    public List<Schedule> getScheduleByUser(Integer userId) {
+        Example example = new Example(Schedule.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId", userId);
         return scheduleMapper.selectByExample(example);
     }
 }
