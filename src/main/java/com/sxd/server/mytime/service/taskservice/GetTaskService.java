@@ -1,7 +1,7 @@
-package com.sxd.server.mytime.Service.TaskService;
+package com.sxd.server.mytime.service.taskservice;
 
-import com.sxd.server.mytime.Dao.TaskMapper;
-import com.sxd.server.mytime.Entity.Task;
+import com.sxd.server.mytime.dao.TaskMapper;
+import com.sxd.server.mytime.entity.Task;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
