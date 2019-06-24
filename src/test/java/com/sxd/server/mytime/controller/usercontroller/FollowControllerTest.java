@@ -29,10 +29,10 @@ public class FollowControllerTest {
     public void getFollowTest0() {
         FollowService followService = mock(FollowService.class);
         GetUserService getUserService = mock(GetUserService.class);
-        when(followService.getFollow(-1)).thenReturn(null);
+        when(followService.getFollow(-1)).thenReturn(new ArrayList<>());
         when(getUserService.getUser(anyInt())).thenReturn(new User());
         FollowController followController = new FollowController(followService,getUserService);
-        assertThat(followController.getFollow(-1),nullValue());
+        assertThat(followController.getFollow(-1),is(empty()));
     }
 
     @Test
