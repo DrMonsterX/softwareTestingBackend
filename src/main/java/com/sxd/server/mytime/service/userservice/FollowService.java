@@ -30,6 +30,12 @@ public class FollowService {
 
     //使当前用户取消关注目标用户
     public int deleteFollow(Integer myId, Integer targetId) {
+        if (myId == null) {
+            return 0;
+        }
+        if (targetId == null) {
+            return 0;
+        }
         Example example = new Example(Follow.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("followingId", myId);
