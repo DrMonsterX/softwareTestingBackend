@@ -12,6 +12,7 @@ public class ResortScheduleController {
     private final GetScheduleService getScheduleService;
     private final ModifyScheduleService modifyScheduleService;
     private static final int SCHEDULE_NOT_FOUND = -2;
+    private static final int MESSING_INFORMATION = -1;
 
     public ResortScheduleController(GetScheduleService getScheduleService, ModifyScheduleService modifyScheduleService) {
         this.getScheduleService = getScheduleService;
@@ -24,6 +25,9 @@ public class ResortScheduleController {
         Schedule schedule = getScheduleService.getScheduleById(scheduleId);
         if (schedule == null) {
             return SCHEDULE_NOT_FOUND;
+        }
+        if (position == null) {
+            return MESSING_INFORMATION;
         }
         schedule.setPosition(position);
         return modifyScheduleService.modifySchedule(schedule);

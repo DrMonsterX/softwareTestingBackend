@@ -12,6 +12,7 @@ public class ModifyScheduleController {
     private final ModifyScheduleService modifyScheduleService;
     private final GetScheduleService getScheduleService;
     private static final Integer SCHEDULE_NOT_FOUND = -2;
+    private static final Integer MESSING_INFORMATION = -1;
 
     public ModifyScheduleController(ModifyScheduleService modifyScheduleService, GetScheduleService getScheduleService) {
         this.modifyScheduleService = modifyScheduleService;
@@ -25,10 +26,22 @@ public class ModifyScheduleController {
         if (schedule == null) {
             return SCHEDULE_NOT_FOUND;
         }
-        schedule.setScheduleName(scheduleName);
+        if (startTime == null) {
+            return MESSING_INFORMATION;
+        }
         schedule.setStartTime(startTime);
+        if (scheduleName == null) {
+            return MESSING_INFORMATION;
+        }
+        schedule.setScheduleName(scheduleName);
+        if (stopTime == null) {
+            return MESSING_INFORMATION;
+        }
         schedule.setFinishTime(stopTime);
         schedule.setRemark(remark);
+        if (remind == null) {
+            return MESSING_INFORMATION;
+        }
         schedule.setIsRemind(remind);
         return modifyScheduleService.modifySchedule(schedule);
     }

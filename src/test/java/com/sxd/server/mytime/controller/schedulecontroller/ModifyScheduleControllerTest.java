@@ -95,7 +95,7 @@ public class ModifyScheduleControllerTest {
         when(getScheduleService.getScheduleById(100)).thenReturn(null);
         when(modifyScheduleService.modifySchedule(any(Schedule.class))).thenReturn(1);
         ModifyScheduleController modifyScheduleController = new ModifyScheduleController(modifyScheduleService,getScheduleService);
-        assertThat(modifyScheduleController.modifySchedule(100,"test",
+        assertThat(modifyScheduleController.modifySchedule(5,"test",
                 "123","321","",null),is(-1));
     }
 }
