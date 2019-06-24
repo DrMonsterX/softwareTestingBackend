@@ -5,6 +5,7 @@ import com.sxd.server.mytime.entity.Follow;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,6 +18,9 @@ public class FollowService {
 
     //通过id获取关注列表
     public List<Follow> getFollow(Integer userId) {
+        if (userId == null) {
+            return new ArrayList<>();
+        }
         Example example = new Example(Follow.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("followingId", userId);
