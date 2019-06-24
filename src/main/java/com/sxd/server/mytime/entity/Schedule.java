@@ -78,4 +78,8 @@ public class Schedule {
     public void setIsRemind(Integer isRemind) {
         this.isRemind = isRemind;
     }
+
+    public void setScheduleId(Integer scheduleId) {
+        this.scheduleId = scheduleId;
+    }
 }
