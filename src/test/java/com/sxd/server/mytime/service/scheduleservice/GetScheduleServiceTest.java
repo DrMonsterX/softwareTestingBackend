@@ -33,6 +33,11 @@ public class GetScheduleServiceTest {
     }
 
     @Test
+    public void getScheduleByIdTest3() {
+        assertThat(getScheduleService.getScheduleById(null),nullValue());
+    }
+
+    @Test
     public void getScheduleByUserTest0() {
         assertThat(getScheduleService.getScheduleByUser(-1),is(empty()));
     }
@@ -45,5 +50,10 @@ public class GetScheduleServiceTest {
     @Test
     public void getScheduleByUserTest2() {
         assertThat(getScheduleService.getScheduleByUser(100),is(empty()));
+    }
+
+    @Test
+    public void getScheduleByUserTest3() {
+        assertThat(getScheduleService.getScheduleByUser(null),is(empty()));
     }
 }

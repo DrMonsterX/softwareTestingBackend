@@ -34,6 +34,11 @@ public class FollowServiceTest {
         assertThat(followService.getFollow(100), is(empty()));
     }
 
+    @Test
+    public void getFollowTest3() {
+        assertThat(followService.getFollow(null), is(empty()));
+    }
+
 
     @Test
     public void followUserTest0() {

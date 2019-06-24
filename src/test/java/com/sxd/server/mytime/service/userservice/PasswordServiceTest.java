@@ -42,4 +42,9 @@ public class PasswordServiceTest {
     public void changePasswordTest4() {
         assertThat(passwordService.changePassword(-1,"123"),is(-2));
     }
+
+    @Test
+    public void changePasswordTest5() {
+        assertThat(passwordService.changePassword(null,"123"),is(-2));
+    }
 }

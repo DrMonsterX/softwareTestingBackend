@@ -33,4 +33,9 @@ public class GetUserServiceTest {
     public void getUserTest2() {
         assertThat(getUserService.getUser(100),nullValue());
     }
+
+    @Test
+    public void getUserTest3() {
+        assertThat(getUserService.getUser(null),nullValue());
+    }
 }

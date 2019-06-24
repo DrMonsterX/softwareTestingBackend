@@ -31,4 +31,9 @@ public class DeleteScheduleServiceTest {
     public void deleteScheduleTest2() {
         assertThat(deleteScheduleService.deleteSchedule(100),is(0));
     }
+
+    @Test
+    public void deleteScheduleTest3() {
+        assertThat(deleteScheduleService.deleteSchedule(null),is(0));
+    }
 }
